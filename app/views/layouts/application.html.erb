@@ -16,12 +16,13 @@
       <nav class="w-full h-14 bg-sky-300">
         <div class="flex justify-between max-w-5xl mx-auto">
           <div class="text-left text-4xl text-opacity-40 ml-5 mt-2">
-            moto app
+            <%= link_to "moto app", "/"%>
           </div>
             <ul class="text-right text-2xl text-opacity-40 mt-3">
               <li class="float-right mx-1">検索</li>
               <%= link_to "新規登録", new_user_path, class: "float-right mx-1" %>
               <li class="float-right mx-1">ログイン</li>
+              <%# <%= link_to "マイページ", user_path(@user), class: "float-right mx-1" %> %>
             </ul>
         </div>
       </nav>
