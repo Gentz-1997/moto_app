@@ -20,8 +20,9 @@
           </div>
             <ul class="text-right text-2xl text-opacity-40 mt-3">
               <li class="float-right mx-1">検索</li>
-              <%= link_to "新規登録", new_user_path, class: "float-right mx-1" %>
-              <li class="float-right mx-1">ログイン</li>
+              <%= link_to "新規登録", new_user_registration_path, class: "float-right mx-1" %>
+              <%= link_to "ログイン", new_user_session_path, class: "float-right mx-1" %>
+              <%= link_to "ログアウト", destroy_user_session_path, class: "float-right mx-1" %>
               <%# <%= link_to "マイページ", user_path(@user), class: "float-right mx-1" %> %>
             </ul>
         </div>
