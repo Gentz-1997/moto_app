@@ -22,11 +22,16 @@
               <li class="float-right mx-1">検索</li>
               <%= link_to "新規登録", new_user_registration_path, class: "float-right mx-1" %>
               <%= link_to "ログイン", new_user_session_path, class: "float-right mx-1" %>
-              <%= link_to "ログアウト", destroy_user_session_path, class: "float-right mx-1" %>
+              <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "float-right mx-1" %>
               <%# <%= link_to "マイページ", user_path(@user), class: "float-right mx-1" %> %>
             </ul>
         </div>
       </nav>
+      <% flash.each do |key, message| %>
+        <div class="alert bg-green-200 <%= key %>">
+          <%= message %>
+        </div>
+      <% end %>
     </header>
     <%= yield %>
   </body>
