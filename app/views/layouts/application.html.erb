@@ -23,6 +23,7 @@
           <div class="text-left text-4xl text-opacity-40 ml-5 mt-2">
             <%= link_to "moto app", "/"%>
           </div>
+
           <div id="overlay" class="opacity-0">
             <ul class="overlay text-right text-2xl text-opacity-40 mt-3">
               <li class="float-right mx-1">検索</li>
@@ -30,10 +31,11 @@
               <%= link_to "ログイン", new_user_session_path, class: "float-right mx-1" %>
               <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "float-right mx-1" %>
             </ul>
-            <svg id="close" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <svg id="close" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
             </svg>
           </div>
+
           <svg id="open" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
