@@ -7,12 +7,12 @@ export default function setupHamburgerMenu() {
 
   if (open && overlay && close) {
     open.addEventListener('click', () => {
-      overlay.classList.remove('opacity-0');
+      overlay.classList.remove('hidden');
       open.classList.add('hidden');
     });
 
     close.addEventListener('click', () => {
-      overlay.classList.add('opacity-0');
+      overlay.classList.add('hidden');
       open.classList.remove('hidden');
     });
   }
