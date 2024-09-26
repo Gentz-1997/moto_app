@@ -17,3 +17,8 @@ export default function setupHamburgerMenu() {
     });
   }
 }
+
+// Turboのページ遷移後にセットアップを実行
+document.addEventListener('turbo:load', () => {
+  setupHamburgerMenu();
+});
