@@ -2,5 +2,8 @@
   <div class="w-2/3 shadow-xl rounded-lg">
     <h2 class="font-bold text-3xl text-center mb-8">マイページ</h2>
     <%= current_user.name %>
+    <div clss="button">
+      <%= link_to "編集", edit_user_registration_path(current_user), class: "w-10 bg-sky-500 text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
+    </div>
   </div>
 </main>

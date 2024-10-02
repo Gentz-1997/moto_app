@@ -73,3 +73,5 @@ gem "devise", "~> 4.9"
 gem "pg"
 
 gem "dotenv"
+
+gem "rails-i18n", "7.0.9"
