@@ -5,8 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
-  validates :avatar,   content_type: { in: %w[avatar/jpeg avatar/gif avatar/png],
-                                      message: "は有効な形式のファイルをファイルを選択して下さい。" },
-                      size:         { less_than: 5.megabytes,
-                                      message:   "5MB以下のファイルを選択して下さい。" }
+  validates :avatar,
+  content_type: {in: %w[image/jpeg image/gif image/png], message: "は有効な形式のファイルをファイルを選択して下さい。" },
+  size:{ less_than: 5.megabytes,message:"5MB以下のファイルを選択して下さい。"}
 end
