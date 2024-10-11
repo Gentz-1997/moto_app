@@ -3,4 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_one_attached :avatar
+  validates :avatar,   content_type: { in: %w[avatar/jpeg avatar/gif avatar/png],
+                                      message: "は有効な形式のファイルをファイルを選択して下さい。" },
+                      size:         { less_than: 5.megabytes,
+                                      message:   "5MB以下のファイルを選択して下さい。" }
 end
