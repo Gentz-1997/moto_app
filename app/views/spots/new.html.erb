@@ -12,8 +12,18 @@
         </div>
 
         <div class="field">
-          <%= form.label :住所, class: "block text-xl text-gray-700 font-semibold ml-4" %>
+          <%= form.label :住所, class: "block text-xl text-gray-700 font-semibold ml-4" %>  
           <%= form.text_field :address, class: "w-80 px-3 py-2 mx-4 my-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :タグ, class: "block text-xl text-gray-700 font-semibold ml-4" %>
+          <%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :tag_name) do |t| %>
+            <div class="checkbox-item flex items-center">
+              <%= t.check_box %>
+              <%= t.label(class: "ml-2") %>
+            </div>
+          <% end %>
         </div>
 
         <div class="field mx-4">

@@ -19,6 +19,6 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:spot_name, :address)
+    params.require(:spot).permit(:spot_name, :address, { :tag_ids=> [] })
   end
 end
