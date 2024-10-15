@@ -8,17 +8,4 @@
     <%= submit_tag "検索" %>
   <% end %>
 
-  <% if @spots.present? %>
-  <h2>検索結果:</h2>
-  <ul>
-    <% @spots.each do |spot| %>
-      <li>
-        <%= link_to spot.name, spot_path(spot) %> 
-        <!-- 他のスポットの情報もここに追加可能 -->
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>検索結果が見つかりませんでした。</p>
-<% end %>
 </div>
