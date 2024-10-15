@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_12_124802) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_13_072037) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_12_124802) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -81,4 +85,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_12_124802) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "spot_tags", "spots"
   add_foreign_key "spot_tags", "tags"
+  add_foreign_key "spots", "users"
 end

@@ -1,5 +1,24 @@
-<% provide(:title, "検索・スポット一覧") %>
-<div class="flex flex-col items-center mt-20">
-  <h1 class="font-bold text-4xl">スポット</h1>
+<% provide(:title, "スポットを探す") %>
+<div class="flex flex-col items-center bg-white py-12 mt-16 shadow-xl rounded-lg">
+  <h1 class="font-bold text-4xl">スポットを探す</h1>
   <p>行き先を探そう</p>
+
+  <%= form_with url: search_spots_path, method: :get, local: true do %>
+    <%= text_field_tag :q, params[:q], placeholder: "スポットを検索" %>
+    <%= submit_tag "検索" %>
+  <% end %>
+
+  <% if @spots.present? %>
+  <h2>検索結果:</h2>
+  <ul>
+    <% @spots.each do |spot| %>
+      <li>
+        <%= link_to spot.name, spot_path(spot) %> 
+        <!-- 他のスポットの情報もここに追加可能 -->
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>検索結果が見つかりませんでした。</p>
+<% end %>
 </div>
