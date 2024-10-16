@@ -12,7 +12,7 @@
       <%= link_to "編集", edit_user_registration_path(current_user), class: "w-10 bg-sky-500 text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
     </div>
     <% @spots.each do |spot| %>
-      <li><%= spot.spot_name %>-<%= spot.address %></li>
+      <li><%= link_to spot.spot_name, spot_path(spot) %>-<%= spot.address %></li>
     <% end %>
   </div>
 </main>
