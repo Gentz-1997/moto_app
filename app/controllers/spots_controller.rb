@@ -27,6 +27,20 @@ class SpotsController < ApplicationController
     @spot = Spot.find_by(id: params[:id])
   end
 
+  def edit
+    @spot = Spot.find_by(id: params[:id])
+  end
+
+  def update
+    @spot = Spot.find_by(id: params[:id])
+    if @spot.update(spot_params)
+      flash[:notice] = "スポットを編集しました"
+      redirect_to spot_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def spot_params
