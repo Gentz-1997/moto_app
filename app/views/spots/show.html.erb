@@ -2,4 +2,35 @@
 <div class="flex flex-col items-center bg-white py-12 mt-16 shadow-xl rounded-lg">
   <%= @spot.spot_name %>
   <%= @spot.address %>
+  <div id="map" style="height: 100vh; width: 75%;"></div>
+
+  <script>
+  function initMap(){
+    // 地図の位置情報(緯度・経度)を取得
+    const mapPosition = {lat: <%= @spot.latitude || 0 %> , lng: <%= @spot.longitude || 0 %> };
+    const map = new google.maps.Map(document.querySelector('#map'), {
+      zoom: 15,
+      center: mapPosition
+    });
+    const transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    const contentString = '【住所】<%= @spot.address %>';
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    const marker = new google.maps.Marker({
+      position: mapPosition,
+      map: map,
+      title: contentString
+    });
+
+    marker.addListener('click', function(){
+      infowindow.open(map, marker);
+    });
+  }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer>
+  </script>
 </div>
