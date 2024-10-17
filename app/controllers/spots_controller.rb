@@ -13,7 +13,7 @@ class SpotsController < ApplicationController
     @spot.user_id = current_user.id
     if @spot.save
       flash[:notice] = "スポットを登録しました"
-      redirect_to spots_path
+      redirect_to spot_path(@spot)
     else
       render :new, status: :unprocessable_entity
     end
