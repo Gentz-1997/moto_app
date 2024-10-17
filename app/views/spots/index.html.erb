@@ -9,7 +9,7 @@
   <% end %>
 
   <% @spots.each do |spot| %>
-    <li><%= spot.spot_name %> <%= spot.address %></li>
+    <li><%= link_to spot.spot_name, spot_path(spot) %> <%= spot.address %></li>
   <% end %>
 
 </div>
