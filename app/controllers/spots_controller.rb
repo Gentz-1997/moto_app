@@ -20,7 +20,9 @@ class SpotsController < ApplicationController
   end
 
   def search
-    @spots = Spot.where('spot_name LIKE ?', "%#{params[:q]}%")
+    search_term = params[:q]
+    @spots = Spot.joins(:tags)
+    .where('spots.spot_name LIKE ? OR spots.address LIKE ? OR tags.tag_name LIKE ?',"%#{search_term}%", "%#{search_term}%", "%#{search_term}%").distinct
   end
 
   def show
