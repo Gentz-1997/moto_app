@@ -43,6 +43,16 @@ class SpotsController < ApplicationController
     end
   end
 
+  def destroy
+    @spot = Spot.find_by(id: params[:id])
+    if @spot.destroy
+      flash[:notice] = "スポットを削除しました"
+      redirect_to user_path(current_user)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def spot_params
