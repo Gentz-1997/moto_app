@@ -5,7 +5,7 @@
     <% if @user.avatar.attached? %>
       <%= image_tag @user.avatar, size: "50x50"%>
     <% else %>
-      <p>No avatar uploaded</p>
+      <p>No avatar uploaded!</p>
     <% end %>
     <%= current_user.name %>
     <div clss="button">
