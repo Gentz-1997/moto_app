@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   }
   root 'home#top'
   resources :users
+  resources :posts
   resources :spots do
     collection do
       get 'search'
