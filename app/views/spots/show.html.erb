@@ -54,7 +54,17 @@
       <% else %>
         <%= image_tag "default_image.jpeg", size: "50x50"%>
       <% end %>
-      <%= post.user.name %> <%= post.content %>
+      <%= post.user.name %> 
+    </div>
+    <div>
+      <%= post.content %>
+    </div>
+    <div>
+      <% if post.images.attached? %>
+        <% post.images.each do |image| %>
+          <%= image_tag image, size: "100x100" %>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
 </div>
