@@ -4,9 +4,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   root 'home#top'
+  get '/posts', to: 'posts#index'
   resources :users
-  resources :posts
   resources :spots do
+    resources :posts, only: [:index, :new, :create, :edit, :update, :destroy]
     collection do
       get 'search'
     end

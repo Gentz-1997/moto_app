@@ -1,5 +1,6 @@
 class Spot < ApplicationRecord
   has_many :spot_tags, dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_many :tags, :through => :spot_tags
   belongs_to :user
 
