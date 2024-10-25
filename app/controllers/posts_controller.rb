@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_spot
+  before_action :set_spot, except: [:index]
 
   def index
-    @posts = @spot.posts
+    @posts = Post.all
   end
 
   def new
