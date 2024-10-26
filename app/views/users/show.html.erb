@@ -19,6 +19,10 @@
     <div>
       <% @user.posts.each do |post| %>
         <%= render 'shared/post', post: post %>
+        <% if current_user && current_user == post.user %>
+          <%= link_to "編集", edit_spot_post_path(post.spot, post), class: "font-bold text-md text-blue-500 hover:text-gray-700 hover:underline mb-2" %>
+          <%= button_to "削除", spot_post_path(post.spot, post), data: { confirm: "Are you sure?", turbo_confirm: "本当に削除しますか？" }, method: :delete, class: "font-bold text-md text-blue-500 hover:text-gray-700 hover:underline mb-2" %>
+        <% end %>
       <% end %>
     </div>
   </div>

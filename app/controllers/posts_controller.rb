@@ -21,6 +21,30 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = @spot.posts.find(params[:id])
+  end
+
+  def update
+    @post = @spot.posts.find(params[:id])
+    if @post.update(post_params)
+      flash[:notice] = "投稿を編集しました"
+      redirect_to user_path(@post.user)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @post = @spot.posts.find(params[:id])
+    if @post.destroy
+      flash[:notice] = "投稿を削除しました"
+      redirect_to user_path(@post.user)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_spot

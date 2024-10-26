@@ -1,0 +1,29 @@
+<% provide(:title, "投稿編集") %>
+<main class="bg-white py-12 mt-16 flex justify-center">
+  <div class="w-2/3 shadow-xl rounded-lg">
+    <h1 class="font-bold text-3xl text-center mb-8">投稿を編集する</h1>
+    <h2 class="font-bold text-3xl text-center mb-8">
+      <%= @post.spot.spot_name %>
+    </h2>
+
+    <div class="flex justify-center">
+      <%= form_with(model: [@spot, @post], method: :put, html: {class: "space-y-4"}) do |form| %>
+        <%= render 'shared/error_messages', object: form.object %>
+
+        <div class="field mb-4">
+          <%= form.label :content, "投稿", class: "block text-xl text-gray-700 font-semibold ml-4" %>
+          <%= form.text_area :content, size: "100x6", class: "w-80 px-3 py-2 mx-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent" %>
+        </div>
+
+        <div class="field mb-6">
+          <%= form.label :画像を選択, class: "block text-xl text-gray-700 font-semibold" %>
+          <%= form.file_field :images, accept: "image/jpeg,image/gif,image/png", class: "px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent" %>
+        </div>
+
+        <div class="field mx-4">
+          <%= form.submit "編集", class: "w-80 bg-sky-500 text-white font-bold mt-4 my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>
