@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_spot, except: [:index]
+  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -22,11 +24,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = @spot.posts.find(params[:id])
   end
 
   def update
-    @post = @spot.posts.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "投稿を編集しました"
       redirect_to user_path(@post.user)
@@ -36,7 +36,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = @spot.posts.find(params[:id])
     if @post.destroy
       flash[:notice] = "投稿を削除しました"
       redirect_to user_path(@post.user)
@@ -49,6 +48,16 @@ class PostsController < ApplicationController
 
   def set_spot
     @spot = Spot.find(params[:spot_id])
+  end
+
+  def set_post
+    @post = @spot.posts.find(params[:id])
+  end
+
+  def correct_user
+    if @post.user != current_user
+      redirect_to root_path, alert: "権限がありません"
+    end
   end
 
   def post_params
