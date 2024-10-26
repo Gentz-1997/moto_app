@@ -1,10 +1,16 @@
 <div class="flex items-center">
   <% if post.user.avatar.attached? %>
-   <%= image_tag post.user.avatar, size: "50x50"%>
+   <%= image_tag post.user.avatar, size: "50x50"%> 
   <% else %>
-    <%= image_tag "default_image.jpeg", size: "50x50"%>
+    <%= image_tag "default_image.jpeg", size: "50x50"%> 
   <% end %>
-  <%= post.user.name %> 
+  <%= post.user.name %>
+  <% if show_spot_info %>
+    <div>
+      <%= post.spot.spot_name %>
+      <%= post.spot.address %>
+    </div>
+  <% end %>
 </div>
 <div>
   <%= post.content %>
