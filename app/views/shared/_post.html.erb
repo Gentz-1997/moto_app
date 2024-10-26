@@ -1,0 +1,18 @@
+<div class="flex items-center">
+  <% if post.user.avatar.attached? %>
+   <%= image_tag post.user.avatar, size: "50x50"%>
+  <% else %>
+    <%= image_tag "default_image.jpeg", size: "50x50"%>
+  <% end %>
+  <%= post.user.name %> 
+</div>
+<div>
+  <%= post.content %>
+</div>
+<div>
+  <% if post.images.attached? %>
+    <% post.images.each do |image| %>
+      <%= image_tag image, size: "100x100" %>
+    <% end %>
+  <% end %>
+</div>

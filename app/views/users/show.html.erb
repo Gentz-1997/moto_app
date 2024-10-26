@@ -11,8 +11,15 @@
     <div clss="button">
       <%= link_to "編集", edit_user_registration_path(current_user), class: "w-10 bg-sky-500 text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
     </div>
+    <div>
     <% @spots.each do |spot| %>
       <li><%= link_to spot.spot_name, spot_path(spot) %>-<%= spot.address %></li>
     <% end %>
+    </div>
+    <div>
+      <% @user.posts.each do |post| %>
+        <%= render 'shared/post', post: post %>
+      <% end %>
+    </div>
   </div>
 </main>
