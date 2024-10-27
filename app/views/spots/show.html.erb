@@ -48,6 +48,6 @@
   </script>
 
   <% @spot.posts.each do |post|%>
-    <%= render 'shared/post', post: post %>
+    <%= render 'shared/post', post: post, show_spot_info: false %>
   <% end %>
 </div>
