@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @spots = @user.spots
+    @favorite_spots = @user.favorite_spots
   end
 
   private

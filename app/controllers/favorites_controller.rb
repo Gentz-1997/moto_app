@@ -1,6 +1,7 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_spot
+  before_action :correct_user
 
   def create
     @favorite = @spot.favorites.new(user: current_user)
@@ -24,5 +25,11 @@ class FavoritesController < ApplicationController
 
   def set_spot
     @spot = Spot.find(params[:spot_id])
+  end
+
+  def correct_user
+    if @spot.user != current_user
+      redirect_to spot_path(@spot), alert: "権限がありません"
+    end
   end
 end
