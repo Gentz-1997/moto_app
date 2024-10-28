@@ -7,7 +7,7 @@
   <%= post.user.name %>
   <% if show_spot_info %>
     <div>
-      <%= post.spot.spot_name %>
+      <%= link_to post.spot.spot_name, spot_path(post.spot) %>
       <%= post.spot.address %>
     </div>
   <% end %>
