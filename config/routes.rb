@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   }
   root 'home#top'
   get '/posts', to: 'posts#index'
-  resources :users
+  resources :users, only: [:show]
   resources :spots do
+    resources :favorites, only: [:create, :destroy]
     resources :posts, only: [:index, :new, :create, :edit, :update, :destroy]
     collection do
       get 'search'

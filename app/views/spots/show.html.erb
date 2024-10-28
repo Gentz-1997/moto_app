@@ -6,6 +6,11 @@
   <% @spot.tags.each do |tag| %>
     <%= tag.tag_name %>
   <% end %>
+  <% if @spot.favorites.exists?(user: current_user) %>
+    <%= button_to "気に入らない", spot_favorite_path(@spot, current_user.favorites.find_by(spot: @spot)), method: :delete, class: "font-bold" %>
+  <% else %>
+    <%= button_to "気に入った", spot_favorites_path(@spot), class: "font-bold" %>
+  <% end %>
   <div clss="button">
     <%= link_to "編集", edit_spot_path(@spot), class: "w-10 bg-sky-500 text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
   </div>

@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :spots, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :favorites
+  has_many :favorite_spots, through: :favorites, source: :spot
   has_one_attached :avatar
   validates :name, presence: true, length: {maximum: 50}
   validates :avatar,
