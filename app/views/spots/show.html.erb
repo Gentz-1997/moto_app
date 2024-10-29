@@ -1,20 +1,20 @@
 <% provide(:title, "スポット詳細") %>
 <div class="flex flex-col items-center bg-white py-12 mt-16 shadow-xl rounded-lg">
   <h1 class="font-bold text-3xl text-center mb-8">スポット詳細</h1>
-  <%= @spot.spot_name %>
-  <%= @spot.address %>
-  <% @spot.tags.each do |tag| %>
-    <%= tag.tag_name %>
-  <% end %>
-  <% if @spot.favorites.exists?(user: current_user) %>
-    <%= button_to "気に入らない", spot_favorite_path(@spot, current_user.favorites.find_by(spot: @spot)), method: :delete, class: "font-bold" %>
-  <% else %>
-    <%= button_to "気に入った", spot_favorites_path(@spot), class: "font-bold" %>
-  <% end %>
-  <div clss="button">
+
+  <div>
+    <%= @spot.spot_name %>
+    <%= @spot.address %>
+    <% @spot.tags.each do |tag| %>
+      <%= tag.tag_name %>
+    <% end %>
+    <%= render 'favorite_button' %>
+  </div>
+
+  <div class="button">
     <%= link_to "編集", edit_spot_path(@spot), class: "w-10 bg-sky-500 text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
   </div>
-  <div clss="button">
+  <div class="button">
     <%= link_to "投稿する", new_spot_post_path(@spot), class: "w-10 bg-sky-500 text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
   </div>
   <% if @spot.user_id == current_user.id %>
