@@ -2,12 +2,7 @@
 <div class="flex flex-col items-center bg-white py-12 mt-16 shadow-xl rounded-lg">
   <h1 class="font-bold text-4xl">スポットを探す</h1>
   <p>行き先を探そう</p>
-
-  <%= form_with url: search_spots_path, method: :get, local: true do %>
-    <%= text_field_tag :q, params[:q], placeholder: "スポットを検索" %>
-    <%= submit_tag "検索" %>
-  <% end %>
-
+  <%= render 'search_form' %>
   <% @spots.each do |spot| %>
     <li><%= link_to spot.spot_name, spot_path(spot) %> <%= spot.address %></li>
   <% end %>
