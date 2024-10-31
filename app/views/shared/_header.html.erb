@@ -1,26 +1,31 @@
-<header class="w-full h-16 top-0 z-10 bg-blue-sky flex fixed">
-  <div class="text-left text-4xl text-opacity-40 ml-5 mt-2">
+<header class="navbar bg-base-300">
+  <div class="btn btn-ghost text-xl">
     <%= link_to "Moto map", "/" %>
   </div>
-  <svg id="open" xmlns="http://www.w3.org/2000/svg" class="absolute top-1 right-4 h-12 w-12 cursor-pointer m-1" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-  </svg>
 
-  <nav id="overlay" class="hidden fixed top-0 bottom-0 right-0 left-3/4 bg-gray-100 bg-opacity-50 text-center transition-opacity z-50">
-    <svg id="close" xmlns="http://www.w3.org/2000/svg" class="absolute top-3 right-4 h-12 w-12 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-    </svg>
-    <ul class="flex flex-col space-y-4 text-2xl text-opacity-40 mt-14">
-      <% if user_signed_in? %>
-        <%= link_to "投稿一覧", posts_path, class: "mx-1" %>
-        <%= link_to "スポットを探す", spots_path, class: "mx-1" %>
-        <%= link_to "スポットを登録", new_spot_path, class: "mx-1" %>
-        <%= link_to "マイページ", user_path(current_user), class: "mx-1" %>
-        <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "mx-1" %>
-      <% else %>
-        <%= link_to "新規登録", new_user_registration_path, class: "mx-1" %>
-        <%= link_to "ログイン", new_user_session_path, class: "mx-1" %>
-      <% end %>
-    </ul>
-  </nav>
+  <div class="drawer drawer-end">
+    <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+      <label for="my-drawer-4" class="drawer-button btn btn-square btn-ghost">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </label>
+    </div>
+    <div class="drawer-side">
+      <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
+      <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 space-y-4 text-2xl text-opacity-40">
+        <% if user_signed_in? %>
+          <%= link_to "投稿一覧", posts_path, class: "mx-1" %>
+          <%= link_to "スポットを探す", spots_path, class: "mx-1" %>
+          <%= link_to "スポットを登録", new_spot_path, class: "mx-1" %>
+          <%= link_to "マイページ", user_path(current_user), class: "mx-1" %>
+          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "mx-1" %>
+        <% else %>
+          <%= link_to "新規登録", new_user_registration_path, class: "mx-1" %>
+          <%= link_to "ログイン", new_user_session_path, class: "mx-1" %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </header>
