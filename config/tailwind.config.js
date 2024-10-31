@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['M PLUS 1p', 'ui-sans-serif', 'system-ui'],
       },
       colors: {
         'blue-sky': '#4cb5f5',
