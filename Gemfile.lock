@@ -115,6 +115,7 @@ GEM
     dotenv (3.1.4)
     drb (2.2.1)
     erubi (1.13.0)
+    foreman (0.88.1)
     geocoder (1.8.3)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
@@ -301,6 +302,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   dotenv
+  foreman
   geocoder
   importmap-rails
   jbuilder

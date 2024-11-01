@@ -79,3 +79,5 @@ gem "rails-i18n", "7.0.9"
 gem "active_storage_validations"
 
 gem "geocoder"
+
+gem "foreman"
