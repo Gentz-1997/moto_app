@@ -1,8 +1,8 @@
 <% provide(:title, "投稿する") %>
 <main class="bg-white py-12 mt-16 flex justify-center">
   <div class="w-2/3 shadow-xl rounded-lg">
-    <h1 class="font-bold text-3xl text-center mb-8">感想を投稿する</h1>
-    <h2 class="font-bold text-3xl text-center mb-8">
+    <h1 class="font-bold text-2xl text-gray-700 text-center mb-8">感想を投稿する</h1>
+    <h2 class="font-semibold text-2xl text-gray-700 text-center mb-8">
       <%= @post.spot.spot_name %>
     </h2>
     <%= render 'form', post: @post, spot: @spot %>

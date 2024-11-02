@@ -1,24 +1,24 @@
 <% provide(:title, "編集") %>
 <main class="bg-white py-12 mt-16 flex justify-center">
   <div class="w-2/3 shadow-xl rounded-lg">
-    <h1 class="font-bold text-3xl text-center mb-8">ユーザー情報を編集する</h1>
+    <h1 class="font-bold text-2xl text-gray-700 text-center mb-8">ユーザー編集</h1>
 
     <div class="flex justify-center">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="field mb-6">
-          <%= f.label :ユーザー画像を選択, class: "block text-xl text-gray-700 font-semibold" %>
+          <%= f.label :ユーザー画像を選択, class: "block text-md text-gray-700 font-semibold" %>
           <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "file-input file-input-bordered w-full max-w-xs mt-6" %>
         </div>
 
         <div class="field mb-6">
-          <%= f.label :名前, class: "block text-xl text-gray-700 font-semibold" %><br>
+          <%= f.label :名前, class: "block text-md text-gray-700 font-semibold" %><br>
           <%= f.text_field :name, class: "w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent" %>
         </div>
 
         <div class="field">
-          <%= f.label :メールアドレス, class: "block text-xl text-gray-700 font-semibold" %><br />
+          <%= f.label :メールアドレス, class: "block text-md text-gray-700 font-semibold" %><br />
           <%= f.email_field :email, class: "w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent", autofocus: true, autocomplete: "email" %>
         </div>
 
@@ -26,17 +26,17 @@
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <div class="field my-6 text-gray-700 font-semibold">
-          <%= f.label :新しいパスワード, class: "block text-xl" %> <i>(変更がなければ空白)</i><br />
+        <div class="field my-6 text-gray-700 ">
+          <%= f.label :新しいパスワード, class: "block text-md font-semibold" %> <p class="text-sm">(変更がなければ空白)</p><br />
           <%= f.password_field :password, class: "w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent", autocomplete: "new-password" %>
           <% if @minimum_password_length %>
             <br />
-            <em><%= @minimum_password_length %> 文字以上</em>
+            <em class="font-bold"><%= @minimum_password_length %> 文字以上</em>
           <% end %>
         </div>
 
         <div class="field">
-          <%= f.label :新しいパスワード確認, class: "block text-xl text-gray-700 font-semibold" %><br />
+          <%= f.label :新しいパスワード確認, class: "block text-md text-gray-700 font-semibold" %><br />
           <%= f.password_field :password_confirmation, class: "w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent", autocomplete: "new-password" %>
         </div>
 
