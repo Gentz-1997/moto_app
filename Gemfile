@@ -81,3 +81,5 @@ gem "active_storage_validations"
 gem "geocoder"
 
 gem "foreman"
+
+gem 'htmlbeautifier'
