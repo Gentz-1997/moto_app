@@ -1,27 +1,23 @@
 <div class=" bg-white shadow-xl rounded-2xl max-w-md mb-5 w-full flex flex-col justify-between p-5">
   <div class="flex items-center font-semibold mb-4">
     <% if post.user.avatar.attached? %>
-    <%= image_tag post.user.avatar, class: "w-12 h-12 rounded-full object-cover" %> 
+      <%= image_tag post.user.avatar, class: "w-12 h-12 rounded-full object-cover" %>
     <% else %>
-      <%= image_tag "default_image.jpeg", class: "w-12 h-12 rounded-full object-cover" %> 
+      <%= image_tag "default_image.jpeg", class: "w-12 h-12 rounded-full object-cover" %>
     <% end %>
-    <div class="text-gray-700">
-      <div class="mx-2">
-        <%= post.user.name %>
-      </div>
-      <% if show_spot_info %>
+    <div class="text-gray-700 mx-2">
+      <%= post.user.name %>
     </div>
+    <% if show_spot_info %>
       <div class="text-sm text-gray-500">
         <%= link_to post.spot.spot_name, spot_path(post.spot), class: "text-blue-500 hover:underline" %>
         <%= post.spot.address %>
       </div>
     <% end %>
   </div>
-
   <div class="flex-grow text-gray-700 mb-4 overflow-y-auto max-h-44">
     <%= post.content %>
   </div>
-
   <div class="flex justify-center">
     <% if post.images.attached? %>
       <div class="grid grid-cols-2 gap-2">
@@ -29,6 +25,12 @@
           <%= image_tag image, class: "w-full h-full object-cover rounded-lg" %>
         <% end %>
       </div>
+    <% end %>
+  </div>
+  <div class="flex justify-end items-center mt-3">
+    <% if current_user && current_user == post.user %>
+      <%= link_to "編集", edit_spot_post_path(post.spot, post), class: "text-md text-blue-500 hover:text-gray-700 hover:underline mr-2" %>
+      <%= button_to "削除", spot_post_path(post.spot, post), data: { confirm: "Are you sure?", turbo_confirm: "本当に削除しますか？" }, method: :delete, class: "text-md text-blue-500 hover:text-gray-700 hover:underline" %>
     <% end %>
   </div>
 </div>
