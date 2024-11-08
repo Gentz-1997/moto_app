@@ -1,32 +1,32 @@
 <% provide(:title, "マイページ") %>
-<main class="py-12 flex justify-center">
-  <div class="w-2/3">
-    <h1 class="font-bold text-2xl text-gray-700 text-center mb-8">マイページ</h1>
-    <% if @user.avatar.attached? %>
-      <%= image_tag @user.avatar, class: "w-12 h-12 rounded-full object-cover" %>
-    <% else %>
-      <%= image_tag "default_image.jpeg", class: "w-12 h-12 rounded-full object-cover" %>
-    <% end %>
-    <%= current_user.name %>
-    <div clss="button">
-      <%= link_to "編集", edit_user_registration_path(current_user), class: "w-10 bg-sky-500 text-white my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
+<div class="flex flex-col items-center py-12 w-full max-w-3xl mx-auto">
+  <h1 class="font-bold text-2xl text-gray-700 mb-8">マイページ</h1>
+  <div class="flex items-center space-x-4 mb-8">
+    <div class="flex-shrink-0">
+      <%= render 'shared/avatar', user: @user %>
     </div>
-    <div>
-      <h2>登録したスポット</h2>
-      <%= render 'shared/spot' %>
+    <div class="flex-1 text-gray-700 mx-2">
+      <p class="text-base truncate">
+        <%= current_user.name %>
+      </p>
     </div>
-    <div>
-      <h2>投稿一覧</h2>
-      <% @user.posts.each do |post| %>
-        <%= render 'shared/post', post: post, show_spot_info: true %>
-      <% end %>
-    </div>
-    <div>
-      <h2>お気に入りスポット</h2>
-      <% @favorite_spots.each do |favorite_spot| %>
-        <%= link_to favorite_spot.spot_name, spot_path(favorite_spot) %>
-        <%= favorite_spot.address %>
-      <% end %>
-    </div>
+    <%= link_to "編集", edit_user_registration_path(current_user), class: "w-10 bg-blue-sky text-white py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
   </div>
-</main>
+  <div>
+    <h2>登録したスポット</h2>
+    <%= render 'shared/spot' %>
+  </div>
+  <div>
+    <h2>投稿一覧</h2>
+    <% @user.posts.each do |post| %>
+      <%= render 'shared/post', post: post, show_spot_info: true %>
+    <% end %>
+  </div>
+  <div>
+    <h2>お気に入りスポット</h2>
+    <% @favorite_spots.each do |favorite_spot| %>
+      <%= link_to favorite_spot.spot_name, spot_path(favorite_spot) %>
+      <%= favorite_spot.address %>
+    <% end %>
+  </div>
+</div>
