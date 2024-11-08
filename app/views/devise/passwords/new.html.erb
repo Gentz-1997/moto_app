@@ -1,22 +1,15 @@
-<main class="bg-white py-12 mt-16 flex justify-center">
-  <div class="w-2/3 shadow-xl rounded-lg">
-    <h2 class="font-bold text-3xl text-center mb-8">パスワード再設定</h2>
-
-    <div class="flex justify-center">
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-
-        <div class="field">
-          <%= f.label :メールアドレス, class: "block text-xl text-gray-700 font-semibold mt-6" %><br />
-          <%= f.email_field :email, class: "w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent", autofocus: true, autocomplete: "email" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Send me reset password instructions", class: "w-full bg-sky-500 text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
-        </div>
-      <% end %>
-
+<% provide(:title, "パスワード再設定") %>
+<div class="py-12 flex flex-col justify-between items-center w-full">
+  <h1 class="font-bold text-2xl text-gray-700 text-center mb-4">パスワード再設定</h1>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "space-y-6" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div>
+      <%= f.label :メールアドレス, class: "block text-md text-gray-700 font-semibold mb-3" %>
+      <%= f.email_field :email, class: "w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent", autofocus: true, autocomplete: "email" %>
     </div>
-    <%= render "devise/shared/links" %>
-  </div>
-</main>
+    <div>
+      <%= f.submit "パスワード再設定のURLを送る", class: "w-full bg-blue-sky text-white font-bold mt-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
+    </div>
+  <% end %>
+</div>
+<%= render "devise/shared/links" %>
