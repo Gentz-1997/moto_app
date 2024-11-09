@@ -11,14 +11,16 @@
     <%= render 'favorite_button' %>
   </div>
   <div class="mb-8 w-full border-b-2 border-b-gray-200">
-    <p class="py-2">住所:<%= @spot.address %></p>
-    <div id="map" style="height: 300px; width: 100%;"></div>
+    <p class="py-2">
+      住所:<%= @spot.address %>
+      <% @spot.tags.each do |tag| %>
+        <%= tag.tag_name %>
+    <% end %>
+    </p>
+    <div id="map"style="height: 300px; width: 100%;"></div>
   </div>
   <div class="mb-8 w-full border-b-2 border-b-gray-200">
-    <p>スポット詳細</p>
-    <% @spot.tags.each do |tag| %>
-      <%= tag.tag_name %>
-    <% end %>
+    
   </div>
   <div class="button">
     <%= link_to "投稿する", new_spot_post_path(@spot), class: "w-10 bg-blue-sky text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
