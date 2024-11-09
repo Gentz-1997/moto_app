@@ -1,26 +1,28 @@
 <% provide(:title, "スポット詳細") %>
-<div class="flex flex-col items-center bg-white py-12 shadow-xl rounded-lg">
-  <h1 class="font-bold text-2xl text-gray-700 text-center mb-8">スポット詳細</h1>
-
+<div class="flex flex-col items-center py-12 w-full max-w-md mx-auto">
+  <h1 class="font-bold text-2xl text-gray-700 text-center mb-8"><%= @spot.spot_name %></h1>
   <div>
-    <%= @spot.spot_name %>
+    <p>住所</p>
     <%= @spot.address %>
+  </div>
+  <div>
+    <p>スポット詳細</p>
     <% @spot.tags.each do |tag| %>
       <%= tag.tag_name %>
     <% end %>
-    <%= render 'favorite_button' %>
   </div>
+    <%= render 'favorite_button' %>
 
   <div class="button">
-    <%= link_to "編集", edit_spot_path(@spot), class: "w-10 bg-sky-500 text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
+    <%= link_to "スポット編集", edit_spot_path(@spot), class: "w-10 bg-sky-500 text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
   </div>
   <div class="button">
     <%= link_to "投稿する", new_spot_post_path(@spot), class: "w-10 bg-sky-500 text-white font-bold my-8 py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
   </div>
   <% if @spot.user_id == current_user.id %>
-    <%= button_to "スポットを削除する", spot_path(@spot), data: { confirm: "Are you sure?", turbo_confirm: "本当に削除しますか？" }, method: :delete, class: "font-bold text-md text-blue-500 hover:text-gray-700 hover:underline mb-2" %>
+    <%= button_to "スポット削除", spot_path(@spot), data: { confirm: "Are you sure?", turbo_confirm: "本当に削除しますか？" }, method: :delete, class: "font-bold text-md text-blue-500 hover:text-gray-700 hover:underline mb-2" %>
   <% end %>
-  <div id="map" style="height: 100vh; width: 40%;"></div>
+  <div id="map" style="height: 300px; width: 100%;"></div>
 
   <script>
   function initMap(){
