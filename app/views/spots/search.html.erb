@@ -1,17 +1,10 @@
 <% provide(:title, "検索結果") %>
-<div class="flex flex-col items-center bg-white py-12 mt-16 shadow-xl rounded-lg">
+<div class="flex flex-col items-center py-12">
   <%= render 'search_form' %>
   <% if @spots.present? %>
-    <h2>検索結果:</h2>
-    <ul>
-      <% @spots.each do |spot| %>
-        <li>
-          <%= link_to spot.spot_name, spot_path(spot) %> 
-          <%= spot.address %>
-        </li>
-      <% end %>
-    </ul>
+    <h1 class="text-md font-semibold text-gray-700 mb-4">検索結果</h1>
+      <%= render 'shared/spot' %>
   <% else %>
-    <p>検索結果が見つかりませんでした。</p>
+    <p class="text-md font-semibold text-gray-700">検索結果が見つかりませんでした。</p>
   <% end %>
 </div>
