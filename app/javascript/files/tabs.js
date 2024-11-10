@@ -1,3 +1,4 @@
+'use strict';
 export function openTab(tabId) {
   const tabs = document.querySelectorAll('[data-tab-content]');
   tabs.forEach(tab => tab.classList.add('hidden'));
