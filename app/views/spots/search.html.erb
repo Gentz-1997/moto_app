@@ -1,5 +1,5 @@
 <% provide(:title, "検索結果") %>
-<div class="flex flex-col items-center py-12">
+<div class="flex flex-col items-center py-12 w-64 md:w-full max-w-md mx-auto">
   <%= render 'search_form' %>
   <% if @spots.present? %>
     <h1 class="text-md font-semibold text-gray-700 mb-4">検索結果</h1>

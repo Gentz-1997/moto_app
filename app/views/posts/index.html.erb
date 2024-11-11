@@ -1,5 +1,5 @@
 <% provide(:title, "ツーリング日記") %>
-<div class="flex flex-col items-center py-12 w-full max-w-md mx-auto">
+<div class="flex flex-col items-center py-12 w-80 md:w-full max-w-md mx-auto">
   <h1 class="font-bold text-2xl text-gray-700 mb-8">みんなのツーリング日記</h1>
   <% @posts.each do |post| %>
     <%= render 'shared/post', post: post, show_spot_info: true %>

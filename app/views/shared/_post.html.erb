@@ -1,11 +1,11 @@
-<div class=" bg-white shadow-xl rounded-2xl max-w-md mb-5 w-full flex flex-col justify-between p-5">
+<div class=" bg-white shadow-xl rounded-2xl max-w-md mb-5 w-full mx-auto flex flex-col justify-between p-5">
   <div class="flex items-center font-semibold mb-4">
     <%= render 'shared/avatar', user: post.user %>
-    <div class="text-gray-700 mx-2">
+    <div class="text-gray-700 mx-2 truncate">
       <%= post.user.name %>
     </div>
     <% if show_spot_info %>
-      <div class="text-sm text-gray-500">
+      <div class="text-sm text-gray-500 truncate">
         <%= link_to post.spot.spot_name, spot_path(post.spot), class: "text-blue-500 hover:underline" %>
         <%= post.spot.address %>
       </div>

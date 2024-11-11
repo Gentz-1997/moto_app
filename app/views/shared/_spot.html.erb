@@ -1,5 +1,5 @@
 <% @spots.each do |spot| %>
-  <div class="bg-white shadow-xl rounded-2xl max-w-md mb-5 w-full flex flex-col p-5 items-center font-semibold text-gray-500">
+  <div class="bg-white shadow-xl rounded-2xl max-w-md mb-5 w-full mx-auto flex flex-col p-5 items-center font-semibold text-gray-500">
     <%= link_to spot.spot_name, spot_path(spot), class: "text-blue-500 hover:underline mb-2" %>
     <%= spot.address %>
   </div>

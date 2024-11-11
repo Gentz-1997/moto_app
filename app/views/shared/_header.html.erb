@@ -1,4 +1,4 @@
-<header class="navbar bg-blue-sky flex justify-between">
+<header class="p-2 bg-blue-sky flex justify-between">
   <div class="btn btn-ghost">
     <%= link_to "Moto map", "/", class: "text-xl" %>
   </div>
@@ -14,7 +14,7 @@
     </div>
     <div class="drawer-side">
       <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
-      <ul class="menu bg-fields text-base-content min-h-full w-80 p-4 space-y-4 font-bold text-opacity-40">
+      <ul class="menu bg-fields text-base-content min-h-full w-40 md:w-80 p-4 space-y-4 font-bold text-opacity-40">
         <% if user_signed_in? %>
           <%= link_to "投稿一覧", posts_path, class: "mx-1 mt-4" %>
           <%= link_to "スポットを探す", spots_path, class: "mx-1" %>
