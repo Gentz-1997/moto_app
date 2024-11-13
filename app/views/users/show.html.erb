@@ -13,27 +13,26 @@
   </div>
   <div data-controller="tabs" class="w-full max-w-2xl mx-auto">
     <!-- タブボタン -->
-    <div class="flex justify-center space-x-4 mb-4 border-b">
+    <div class="flex justify-center space-x-4 mb-4 border-b w-72">
       <button data-action="click->tabs#selectTab" data-tabs-target="tab" class="tab-button py-2 px-4 font-semibold text-gray-600 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500">登録したスポット</button>
       <button data-action="click->tabs#selectTab" data-tabs-target="tab" class="tab-button py-2 px-4 font-semibold text-gray-600 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500">投稿一覧</button>
       <button data-action="click->tabs#selectTab" data-tabs-target="tab" class="tab-button py-2 px-4 font-semibold text-gray-600 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500">お気に入りスポット</button>
     </div>
     <!-- タブの内容 -->
     <div data-tabs-target="content">
-      <h2 class="text-xl font-semibold mb-4">登録したスポット</h2>
       <%= render 'shared/spot' %>
     </div>
     <div data-tabs-target="content" class="hidden">
-      <h2 class="text-xl font-semibold mb-4">投稿一覧</h2>
       <% @user.posts.each do |post| %>
         <%= render 'shared/post', post: post, show_spot_info: true %>
       <% end %>
     </div>
     <div data-tabs-target="content" class="hidden">
-      <h2 class="text-xl font-semibold mb-4">お気に入りスポット</h2>
       <% @favorite_spots.each do |favorite_spot| %>
-        <%= link_to favorite_spot.spot_name, spot_path(favorite_spot), class: "text-blue-500 hover:underline" %>
-        <%= favorite_spot.address %>
+        <div class="bg-white shadow-xl rounded-2xl max-w-md mb-5 w-full mx-auto flex flex-col p-5 items-center font-semibold text-gray-500">
+          <%= link_to favorite_spot.spot_name, spot_path(favorite_spot), class: "text-blue-500 hover:underline mb-2" %>
+          <%= favorite_spot.address %>
+        </div>
       <% end %>
     </div>
   </div>
