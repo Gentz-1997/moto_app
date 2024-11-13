@@ -37,6 +37,9 @@
     </p>
     <div id="map" style="height: 300px; width: 100%;"></div>
   </div>
+  <% @spot.posts.each do |post|%>
+    <%= render 'shared/post', post: post, show_spot_info: false %>
+  <% end %>
 </div>
   <script>
     function initMap(){
@@ -66,7 +69,3 @@
     }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&libraries=marker&callback=initMap" async defer></script>
-  <% @spot.posts.each do |post|%>
-    <%= render 'shared/post', post: post, show_spot_info: false %>
-  <% end %>
-</div>

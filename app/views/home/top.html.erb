@@ -1,29 +1,35 @@
 <% provide(:title, "Home") %>
-<div class="flex justify-center"><%= image_tag "topimage.jpeg", class: "rounded-full object-cover" %></div>
-<div class="text-center w-96 mx-auto">
-  <h1 class="font-bold text-2xl text-gray-700 my-12 w-80 mx-auto border-b-2">Moto Mapの使い方</h1>
-  <div class="mb-10">
-    <div class="flex justify-center"><%= image_tag "registration.jpeg", class: "w-64 h-56 md:w-80 md:h-64 rounded-full object-cover" %></div>
-    <h2 class="text-xl font-semibold m-8">1.ユーザー登録をしよう</h2>
-    <p class="m-5">
-      ユーザー登録をすることで、スポット検索や旅の思い出を投稿することができるようになります。<br>
-      まずは登録をしてみましょう。
-    </p>
+<div class="flex flex-col items-center w-full mx-auto">
+  <div class="w-64 md:w-2/3 mx-auto mt-16 mb-20">
+    <h1 class="text-left text-2x1 md:text-4xl font-bold">Ride, Explore,</h1>
+    <%= image_tag "topimage.jpeg", class: "rounded-full object-cover" %>
+    <h1 class="text-right text-2x1 md:text-4xl font-bold">and Share Your Journey</h1>
   </div>
-  <div class="mb-10">
-    <div class="flex justify-center"><%= image_tag "search.jpeg", class: "w-64 h-56 md:w-80 md:h-64 rounded-full object-cover" %></div>
-    <h2 class="text-xl font-semibold m-8">2.スポットを検索してみよう</h2>
-    <p class="m-5">
-      ツーリングでどこに行くか迷ったら検索してみましょう。<br>
-      意外なツーリングスポットが見つかるかもしれません。
-    </p>
-  </div>
-  <div class="mb-10">
-    <div class="flex justify-center"><%= image_tag "post.jpeg", class: "w-64 h-56 md:w-80 md:h-64 rounded-full object-cover" %></div>
-    <h2 class="text-xl font-semibold m-8">3.ツーリングスポットを登録して、旅の思い出を投稿してみよう</h2>
-    <p class="m-5">
-      まずはツーリングスポットを登録してみましょう。<br>
-      スポットを登録したら、走った感想や途中で寄ったお店など旅の思い出の投稿ができます。
-    </p>
+  <div class="w-64 md:w-96 mx-auto">
+    <h2 class="font-bold text-2xl text-gray-700 my-12 text-center border-b-2">Moto Mapの使い方</h2>
+    <div class="mb-10">
+      <div class="flex justify-center"><%= image_tag "registration.jpeg", class: "w-64 h-56 md:w-80 md:h-64 rounded-full object-cover" %></div>
+      <h3 class="text-xl font-semibold m-8">1.ユーザー登録をしよう</h3>
+      <p class="m-5">
+        ユーザー登録をすることで、スポット検索や旅の思い出を投稿することができるようになります。<br>
+        まずは登録をしてみましょう。
+      </p>
+    </div>
+    <div class="mb-10">
+      <div class="flex justify-center"><%= image_tag "search.jpeg", class: "w-64 h-56 md:w-80 md:h-64 rounded-full object-cover" %></div>
+      <h3 class="text-xl font-semibold m-8">2.スポットを検索してみよう</h3>
+      <p class="m-5">
+        ツーリングでどこに行くか迷ったら検索してみましょう。<br>
+        意外なツーリングスポットが見つかるかもしれません。
+      </p>
+    </div>
+    <div class="mb-10">
+      <div class="flex justify-center"><%= image_tag "post.jpeg", class: "w-64 h-56 md:w-80 md:h-64 rounded-full object-cover" %></div>
+      <h3 class="text-xl font-semibold m-8">3.ツーリングスポットを登録して、旅の思い出を投稿してみよう</h3>
+      <p class="m-5">
+        まずはツーリングスポットを登録してみましょう。<br>
+        スポットを登録したら、走った感想や途中で寄ったお店など旅の思い出の投稿ができます。
+      </p>
+    </div>
   </div>
 </div>

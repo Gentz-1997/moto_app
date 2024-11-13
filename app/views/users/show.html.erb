@@ -1,5 +1,5 @@
 <% provide(:title, "マイページ") %>
-<div class="flex flex-col items-center py-12 w-80 md:w-full max-w-3xl mx-auto">
+<div class="flex flex-col items-center py-12 w-80 md:w-full mx-auto">
   <div class="flex items-center space-x-4 my-8">
     <div class="flex-shrink-0">
       <%= render 'shared/avatar', user: @user %>
@@ -11,9 +11,9 @@
     </div>
     <%= link_to "編集", edit_user_registration_path(current_user), class: "bg-blue-sky text-white font-bold py-2 px-4 rounded hover:bg-sky-600 transition duration-200" %>
   </div>
-  <div data-controller="tabs" class="w-full max-w-2xl mx-auto">
+  <div data-controller="tabs" class="mx-auto">
     <!-- タブボタン -->
-    <div class="flex justify-center space-x-4 mb-4 border-b w-72">
+    <div class="flex justify-center space-x-4 mb-4 border-b w-full">
       <button data-action="click->tabs#selectTab" data-tabs-target="tab" class="tab-button py-2 px-4 font-semibold text-gray-600 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500">登録したスポット</button>
       <button data-action="click->tabs#selectTab" data-tabs-target="tab" class="tab-button py-2 px-4 font-semibold text-gray-600 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500">投稿一覧</button>
       <button data-action="click->tabs#selectTab" data-tabs-target="tab" class="tab-button py-2 px-4 font-semibold text-gray-600 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500">お気に入りスポット</button>
