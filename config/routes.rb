@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   root 'home#top'
+  get 'terms_of_use', to: 'home#terms_of_use'
+  get 'privacy_policy', to: 'home#privacy_policy'
   get '/posts', to: 'posts#index'
   resources :users, only: [:show]
   resources :spots do
