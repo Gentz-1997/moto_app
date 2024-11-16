@@ -1,6 +1,9 @@
 <% provide(:title, "ログイン") %>
 <div class="py-12 flex flex-col justify-between items-center w-full max-w-md mx-auto">
-  <h1 class="font-bold text-2xl text-gray-700 text-center mb-4">ログイン</h1>
+  <h1 class="font-bold text-2xl text-gray-700 text-center mb-4 flex items-center">
+    <%= user_icon(class: "size-6 mr-2") %>
+    ログイン
+  </h1>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "space-y-6 mt-4"}) do |f| %>
     <div>
       <%= f.label :メールアドレス, class: "block text-md text-gray-700 font-semibold mb-3" %>

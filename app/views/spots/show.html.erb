@@ -1,7 +1,8 @@
 <% provide(:title, "スポット詳細") %>
 <div data-controller="dropdown" data-action="click@window->dropdown#close" class="flex flex-col items-center py-12 w-80 md:w-full max-w-lg mx-auto relative">
   <div class="flex justify-between items-center border-b-2 border-b-gray-200 my-8 w-full">
-    <h1 class="font-bold text-xl text-gray-700">
+    <h1 class="font-bold text-xl text-gray-700 flex items-center">
+      <%= spot_icon %>
       <%= @spot.spot_name %>
     </h1>
     <div class="flex items-center space-x-4">

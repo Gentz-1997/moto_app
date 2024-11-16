@@ -1,6 +1,6 @@
 <% provide(:title, "スポットを探す") %>
 <div class="flex flex-col items-center py-12 w-80 md:w-full max-w-md mx-auto">
-  <h1 class="mt-3 px-5 py-3 font-bold text-2xl text-gray-700 rounded bg-fields">行き先を探そう!</h1>
+  <h1 class="mt-3 px-5 py-3 font-bold text-2xl text-gray-700 rounded flex items-center"><%= search_icon %>ワードor現在地から探す</h1>
   <div class="my-3">
     <%= render 'search_form' %>
   </div>

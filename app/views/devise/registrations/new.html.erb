@@ -1,6 +1,9 @@
 <% provide(:title, "新規登録") %>
 <div class="py-12 flex flex-col justify-between items-center w-full max-w-md mx-auto">
-  <h1 class="font-bold text-2xl text-gray-700 text-center mb-4">新規登録</h1>
+  <h1 class="font-bold text-2xl text-gray-700 text-center mb-4 flex items-center">
+    <%= registration_icon(class: "size-6 mr-2") %>
+    新規登録
+  </h1>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "space-y-4"}) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div>
