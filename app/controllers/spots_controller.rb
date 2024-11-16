@@ -5,6 +5,11 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.all.order(created_at: :desc)
+
+    respond_to do |format|
+      format.html
+      format.json{render json: @spots}
+    end
   end
 
   def new
