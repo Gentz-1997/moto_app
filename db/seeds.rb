@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+['絶景スポット', '名道', 'バイク駐車場', 'バイクショップ', '温泉・サウナ', 'カフェ'].each do |tag_name|
+  Tag.find_or_create_by!(tag_name: tag_name)
+end
