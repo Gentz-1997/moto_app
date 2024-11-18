@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_spot
-  before_action :correct_user
 
   def create
     @favorite = @spot.favorites.new(user: current_user)
