@@ -21,6 +21,23 @@ Moto Mapは、バイク乗り同士がツーリングに関する情報を共有
 ・スポット登録機能
 →スポット名、住所を入力しスポット登録をします。スポットにタグ付けして登録することが可能です。編集は全てのユーザーが可能で、削除については作成したユーザーのみができます。
 ・投稿機能
+→スポットに紐づいて感想を投稿することができます。
 ・投稿一覧機能
 ・検索機能
+→住所、スポット名、タグなどから検索ができます。
 ・スポットお気に入り機能
+
+# 技術スタック
+|カテゴリ|技術|
+|:-|:-|
+|フロントエンド|Rails 7.1.3, Javascript, TailwindCSS, DaisyUI|
+|バックエンド|Rails7.1.3, Ruby3.3.1|
+|データベース|PostgreSQL|
+|環境構築|Docker|
+|インフラ|Fly.io|
+|Web API|Google Maps API( Maps Javascript API / Geocoding API )|
+
+# 画面遷移図
+https://www.figma.com/design/UeUDjMl3Cpn3yzV0njQzU2/%E3%83%89%E3%83%A9%E3%82%A4%E3%83%96%E3%83%BB%E3%83%84%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%A2%E3%83%97%E3%83%AA?t=GuTqbLYtt3VyRPuV-0
+
+# ER図
